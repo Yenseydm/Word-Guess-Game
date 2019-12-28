@@ -1,3 +1,5 @@
+
+
 // array of random words
 var words = [
     "ranch",
@@ -19,3 +21,17 @@ console.log(remaining);
 // Randomize word chosen
 var word = words[Math.floor(Math.random() * words.length)];
 console.log(word);
+
+//show underscore
+var randomWord = [];
+    for (var i = 0; i < word.length; i++) {
+              randomWord.push("__");
+              randomWord.toString()
+              document.getElementById("#current").innerHTML = randomWord.join(" ");
+            }
+console.log(randomWord);
+//letters guessed
+
+function updateScore() {
+    document.getElementById("#wins").innerHTML = "Wins: " + score;
+  }
