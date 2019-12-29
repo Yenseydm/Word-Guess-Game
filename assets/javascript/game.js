@@ -1,54 +1,54 @@
 
+    // array of words
+    var words = [
+        "ranch",
+        "ketchup",
+        "buffalo",
+        "barbeque",
+        "marinara",
+        "mayonnaise",
+    ];
 
-// array of random words
-var words = [
-  "ranch",
-  "ketchup",
-  "buffalo",
-  "barbeque",
-  "marinara",
-  "mayonnaise",
-];
-console.log(words);
-// Randomize word chosen
-var word = words[Math.floor(Math.random() * words.length)];
-console.log(word);
+    // randomize words in "words" array
+    var word = words[Math.floor(Math.random() * words.length)];
+    console.log(word);
 
-//display on page
-var winsText = document.getElementById("wins-text");
-var currentWord = document.getElementById("current-text");
-var remainingText = document.getElementById("remaining-text");
-var lettersGuessed = document.getElementById("guessed-text");
+    // assign var to ids
+    var directionText = document.getElementById("directions-text");
+    var winsText = document.getElementById("wins-text");
+    var currentWord = document.getElementById("current-text");
+    var remainingText = document.getElementById("remaining-text");
+    var lettersGuessed = document.getElementById("guessed-text");
 
-// variables
-var wins = 0;
-var remaining = 10;
-var guessedLetters = "";
-console.log(wins);
-console.log(remaining);
-console.log(guessedLetters)
+    // created wins, remaining, and guessedLetters
+    var wins = 0;
+    var remaining = 10;
+    var guessedLetters = [];
+    console.log(wins);
+    console.log(remaining);
+    console.log(guessedLetters)
 
-document.onkeyup = function (event) {
+    // created a function to catch user keys
+    document.onkeyup = function (event) {
+        var userGuess = event.key;
+        console.log(userGuess);
 
-  // Determines which key was pressed
-  var userGuess = event.key;
-  console.log(userGuess);
+        var blankSpaces = [];
 
+        for (i = 0; i < word.length; i++) {
+            blankSpaces[i] = "_ ";
+        };
 
-  var blankSpaces = "";
-  console.log(blankSpaces);
+        
 
-  for (i = 0; i < word.length; i++) {
-    blankSpaces[i] = "_";
-    if (userGuess === word[i]){
-      blankSpaces.push("_")
-    }
-  }
+            // making directions dissapear when game begins
+            directionText.textContent = "";
+
+            // displaying wins, blankspaces, chances, and guessed getters.
+            winsText.textContent = "Wins: " + wins;
+            currentWord.textContent = blankSpaces;
+            remainingText.textContent = "Remaining Chances: " + remaining;
+            lettersGuessed.textContent = userGuess;
+        }
+
   
-  remainingText.textContent = remaining;
-};
-
-
-
-
-
