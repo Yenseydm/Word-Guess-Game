@@ -5,22 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="assets/javascript/game.js"></script>
-    <title>Hangman</title>
+    <!--<script src="assets/javascript/game.js"></script>-->
+    <title>Word Guess</title>
 </head>
 
 <body>
-    <h1> HANGMAN</h1>
+
+    <h1> Word Guess</h1>
     <h2>Dipping Sauce Edition</h2>
 
-    <p> Press any key to get started!</p>
-    <p id="images"></p>
+    <div class="column">
+        <p id="images"></p>
+    </div>
 
-    <p id="wins"></p>
-    <p id="current"></p>
-    <p id="remaining"></p>
-    <p id="guessed"></p>
+    <div class="column">
+        <p id="directions-text"> Press any key to get started!</p>
 
+        <p id="wins-text"> </p>
+        <p id="current-text"> </p>
+        <p id="remaining-text"> </p>
+        <p id="guessed-text"> </p>
+    </div>
+
+    <script>
+        var words = [
+            "ranch",
+            "ketchup",
+            "buffalo",
+            "barbeque",
+            "marinara",
+            "mayonnaise",
+        ];
+        console.log(words);
+       
+        var word = words[Math.floor(Math.random() * words.length)];
+        console.log(word);
+
+        var winsText = document.getElementById("wins-text");
+        var currentWord = document.getElementById("current-text");
+        var remainingText = document.getElementById("remaining-text");
+        var lettersGuessed = document.getElementById("guessed-text");
+
+        
+        var wins = 0;
+        var remaining = 10;
+        var guessedLetters = "";
+        console.log(wins);
+        console.log(remaining);
+        console.log(guessedLetters)
+
+        document.onkeyup = function (event) {
+
+            var userGuess = event.key;
+            console.log(userGuess);
+
+
+            var blankSpaces = "";
+            console.log(blankSpaces);
+
+            for (i = 0; i < word.length; i++) {
+                blankSpaces[i] = "_";
+                if (userGuess === word[i]) {
+                    blankSpaces.push("_")
+                }
+            }
+
+            winsText.textContent = "Wins: " + wins;
+            currentWord.textContent = blankSpaces;
+            remainingText.textContent = "Remaining Chances: " + remaining;
+            lettersGuessed.textContent = userGuess;
+        };
+    </script>
 
 </body>
 
