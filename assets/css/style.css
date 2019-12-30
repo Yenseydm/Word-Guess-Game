@@ -1,0 +1,80 @@
+body{
+    background-image: url("messy.gif");
+    background-repeat: repeat;
+}
+
+#title {
+    text-align: center;
+}
+
+h1{
+    font-size: 180px;
+    font-family: 'Barrio', cursive;
+    color: white;
+    position: relative;
+    text-shadow: -1px -1px 0 rgb(255, 218, 51), 1px -1px 0 rgb(252, 231, 45), -1px 1px 0 rgb(11, 95, 91), 1px 1px 0 rgb(11, 95, 91);;
+}
+
+h2 {
+    font-size: 90px;
+    font-family: 'Loved by the King', cursive;
+    color: rgb(255, 110, 52);
+    font-weight: 50px ;
+    padding-bottom: 150px;
+    position: absolute;
+    top: 110px;
+    right: 340px;
+    text-shadow: -1px -1px 0 rgb(204, 77, 27), 1px -1px 0 rgb(204, 80, 30), -1px 1px 0 rgb(207, 77, 25), 1px 1px 0 rgb(209, 78, 27);
+    transform: rotate(-2deg);
+}
+
+#directions-text {
+    font-family: 'Barriecito', cursive;
+    text-align: center;
+    font-size: 90px;
+    color: rgb(255, 255, 255);
+    text-shadow: -1px -1px 0 rgb(255, 216, 200), 1px -1px 0 rgb(255, 230, 220), -1px 1px 0 rgb(255, 220, 206), 1px 1px 0 rgb(238, 201, 187);
+
+}
+
+#wins-text {
+    font-family: 'Barriecito', cursive;
+    font-size: 40px;
+}
+
+#current-text{
+    font-size: 80px;
+    font-family: 'Monofett', cursive;
+    color: rgb(230, 92, 38);
+    text-shadow: 1px black;
+}
+
+#remaining-text {
+    font-family: 'Barriecito', cursive;
+    font-size: 40px;
+}
+
+#guessed-text {
+    font-family: 'Barriecito', cursive;
+    font-size: 30px;
+}
+
+.jumbotron {
+    background-color: rgba(232, 239, 240, 0.5);
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 50px
+}
+
+.container {
+    margin: 40px;
+    color: rgb(34, 67, 88);
+}
+
+
+
+/* 
+font-family: 'Barriecito', cursive;
+font-family: 'Loved by the King', cursive;
+font-family: 'Barrio', cursive;
+font-family: 'Monofett', cursive; for the guessed word */
