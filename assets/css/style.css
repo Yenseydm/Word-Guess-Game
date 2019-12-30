@@ -33,8 +33,8 @@ h2 {
     text-align: center;
     font-size: 90px;
     color: rgb(255, 255, 255);
-    text-shadow: -1px -1px 0 rgb(255, 216, 200), 1px -1px 0 rgb(255, 230, 220), -1px 1px 0 rgb(255, 220, 206), 1px 1px 0 rgb(238, 201, 187);
-
+    text-shadow: -1px -1px 0 rgb(1, 18, 51), 1px -1px 0 rgb(0, 1, 56), -1px 1px 0 rgb(6, 0, 87), 1px 1px 0 rgb(10, 2, 83);
+    line-height: 200px;
 }
 
 #wins-text {
@@ -46,7 +46,8 @@ h2 {
     font-size: 80px;
     font-family: 'Monofett', cursive;
     color: rgb(230, 92, 38);
-    text-shadow: 1px black;
+    text-shadow: -1px -1px 0 rgb(151, 68, 0), 1px -1px 0 rgb(151, 68, 0), -1px 1px 0 rgb(151, 68, 0), 1px 1px 0 rgb(151, 68, 0);
+
 }
 
 #remaining-text {
@@ -67,7 +68,7 @@ h2 {
 }
 
 .container {
-    margin: 40px;
+    margin: 30px;
     color: rgb(34, 67, 88);
 }
 
