@@ -20,52 +20,53 @@ var loseText = document.getElementById("lose-text");
 var currentWord = document.getElementById("current-text");
 var remainingText = document.getElementById("remaining-text");
 var lettersGuessed = document.getElementById("guessed-text");
+var startGame = false;
 
 // created wins, remaining, and guessedLetters
 var wins = 0;
 var loses = 0;
 var remaining = 11;
 
+
+var wordArray = [];
+var guessedLetters = [];
+
 // created a function to catch user keys
 document.onkeyup = function (event) {
     var userGuess = event.key;
     console.log(userGuess);
-
-    var wordArray = [];
-    var guessedLetters = [];
-    var correctLetters = [];
 
     for (i = 0; i < word.length; i++) {
         wordArray[i] = ("_");
         console.log(wordArray)
     };
 
+    startGame = true;
+
     for (var i = 0; i < word.length; i++) {
         guessedLetters.push("_");
         guessedLetters.toString();
         currentWord.textContent = wordArray.join("");
     }
-    for (var i = 0; i < word.length; i++) {
-        correctLetters.push(word.charAt(i));
-        correctLetters.toString(i);
-    }
 
     if (userGuess === word[0] || userGuess === word[1] || userGuess === word[2] || userGuess === word[3] || userGuess === word[4] ||
         userGuess === word[5] || userGuess === word[6] || userGuess === word[7] || userGuess === word[8] || userGuess === word[9]) {
 
-            wordArray.push(word.charAt(i));
+        /// ???
 
     } else {
-
-        document.getElementById("guessed-text").innerHTML += userGuess + " "; 
+        document.getElementById("guessed-text").innerHTML += userGuess + " ";
 
         // // subtract a remaining chance 
         remaining--;
     }
 
-    if (remaining < 0){
-        loses++ 
-    } 
+    if (remaining <= 0) {
+        startGame=false;
+        loses++;
+        currentWord.textContent = word;
+        document.getElementById("images").src = "https://gph.is/2CJO9yA";
+    }
 
 
 
@@ -76,7 +77,6 @@ document.onkeyup = function (event) {
     winsText.textContent = "Wins: " + wins;
     loseText.textContent = "Losses: " + loses;
     remainingText.textContent = "Remaining Chances: " + remaining;
-    
-    // lettersGuessed.textContent = userGuess.join("");
+
 
 }
