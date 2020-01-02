@@ -22,10 +22,11 @@ h2 {
     font-weight: 50px ;
     padding-bottom: 150px;
     position: absolute;
-    top: 110px;
-    right: 340px;
+    top: 120px;
+    right: 100px;
     text-shadow: -1px -1px 0 rgb(204, 77, 27), 1px -1px 0 rgb(204, 80, 30), -1px 1px 0 rgb(207, 77, 25), 1px 1px 0 rgb(209, 78, 27);
     transform: rotate(-2deg);
+    width: 50%;
 }
 
 #directions-text {
@@ -68,8 +69,8 @@ h2 {
 }
 
 .container {
-    margin: 30px;
     color: rgb(34, 67, 88);
+    
 }
 
 #lose-text {
