@@ -72,3 +72,7 @@ h2 {
     color: rgb(34, 67, 88);
 }
 
+#lose-text {
+    font-family: 'Barriecito', cursive;
+    font-size: 40px;
+}
