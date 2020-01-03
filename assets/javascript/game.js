@@ -30,6 +30,7 @@ var remaining = 11;
 
 var wordArray = [];
 var guessedLetters = [];
+var matchedLetters = [];
 
 // created a function to catch user keys
 document.onkeyup = function (event) {
@@ -47,18 +48,39 @@ document.onkeyup = function (event) {
         guessedLetters.push("_");
         guessedLetters.toString();
         currentWord.textContent = wordArray.join("");
+
+
     }
-
-    if (userGuess === word[0] || userGuess === word[1] || userGuess === word[2] || userGuess === word[3] || userGuess === word[4] ||
-        userGuess === word[5] || userGuess === word[6] || userGuess === word[7] || userGuess === word[8] || userGuess === word[9]) {
-
-        /// ???
-
-    } else {
+    
+    if (word.indexOf(userGuess) === -1) {
+        
+        console.log("wrong");
+        
         document.getElementById("guessed-text").innerHTML += userGuess + " ";
-
+    
         // // subtract a remaining chance 
         remaining--;
+
+    } else {
+
+        matchedLetters.push(userGuess);
+        console.log(matchedLetters);
+        console.log(guessedLetters);
+        
+        for (var i = 0; i < word.length; i++) {
+
+            if(wordArray[i] === userGuess){
+                guessedLetters.push(userGuess);
+            } else {
+                guessedLetters.push("_");
+            }
+
+            
+        }
+        guessedLetters.toString();
+        
+        currentWord.textContent = wordArray.join("");
+
     }
 
     if (remaining <= 0) {
