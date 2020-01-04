@@ -32,10 +32,10 @@ h2 {
 #directions-text {
     font-family: 'Barriecito', cursive;
     text-align: center;
-    font-size: 90px;
+    font-size: 50px;
     color: rgb(255, 255, 255);
     text-shadow: -1px -1px 0 rgb(1, 18, 51), 1px -1px 0 rgb(0, 1, 56), -1px 1px 0 rgb(6, 0, 87), 1px 1px 0 rgb(10, 2, 83);
-    line-height: 200px;
+    line-height: 100px;
 }
 
 #wins-text {
