@@ -12,7 +12,7 @@ var words = [
 // variables
 var guessedLetters = []; //userGuess 
 var underscoredWord = []; // underscores "_"
-var guessesRemaining = 11; //guesses remaining
+var guessesRemaining = 10; //guesses remaining
 var wins = 0; //wins
 var loses = 0; //losses
 var startGame = false; //false = game stopped 
