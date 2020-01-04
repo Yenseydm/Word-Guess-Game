@@ -7,12 +7,17 @@ var words = [
     "barbeque",
     "marinara",
     "mayonnaise",
+    "gravy",
+    "mustard",
+    "soy",
+    "salsa",
+    "guacamole",
 ];
 
 // variables
 var guessedLetters = []; //userGuess 
 var underscoredWord = []; // underscores "_"
-var guessesRemaining = 10; //guesses remaining
+var guessesRemaining = 8; //guesses remaining
 var wins = 0; //wins
 var loses = 0; //losses
 var startGame = false; //false = game stopped 
@@ -70,11 +75,17 @@ function checkGuesses(letter) {
     }
 };
 
+var resetGuesses = function () {
+    guessesRemaining = 8; // reset guesses
+    document.querySelector("#remaining-text").innerHTML = ''; // reset our view
+  }
+
 // if word is correct you get ++ wins
 function ifWinner() {
     if (underscoredWord.indexOf("_") === -1) {
         wins++;
         startGame = true;
+        resetGuesses()
     } 
 };
 
@@ -82,7 +93,8 @@ function ifWinner() {
 function ifLose() {
     if (guessesRemaining <= 0) {
         loses++;
-        startGame = true
+        startGame = true;
+        resetGuesses()
     }
 };
 
@@ -97,7 +109,6 @@ document.onkeyup = function (event) {
                 updateScreen();
                 ifWinner();
                 ifLose();
-            
             
         };
 

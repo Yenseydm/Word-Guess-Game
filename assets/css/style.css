@@ -44,11 +44,12 @@ h2 {
 }
 
 #current-text{
-    font-size: 80px;
+    font-size: 100px;
     font-family: 'Monofett', cursive;
     color: rgb(230, 92, 38);
     text-shadow: -1px -1px 0 rgb(151, 68, 0), 1px -1px 0 rgb(151, 68, 0), -1px 1px 0 rgb(151, 68, 0), 1px 1px 0 rgb(151, 68, 0);
-
+    margin-left: 50px;
+    text-align: center;
 }
 
 #remaining-text {
@@ -77,3 +78,4 @@ h2 {
     font-family: 'Barriecito', cursive;
     font-size: 40px;
 }
+
