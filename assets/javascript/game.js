@@ -9,96 +9,98 @@ var words = [
     "mayonnaise",
 ];
 
-// randomize words in "words" array
-var word = words[Math.floor(Math.random() * words.length)];
-console.log(word);
-
-// assign var to ids
-var directionText = document.getElementById("directions-text");
-var winsText = document.getElementById("wins-text");
-var loseText = document.getElementById("lose-text");
-var currentWord = document.getElementById("current-text");
-var remainingText = document.getElementById("remaining-text");
-var lettersGuessed = document.getElementById("guessed-text");
-var startGame = false;
-
-// created wins, remaining, and guessedLetters
-var wins = 0;
-var loses = 0;
-var remaining = 11;
+// variables
+var guessedLetters = []; //userGuess 
+var underscoredWord = []; // underscores "_"
+var guessesRemaining = 11; //guesses remaining
+var wins = 0; //wins
+var loses = 0; //losses
+var startGame = false; //false = game stopped 
+var word; // word being played
 
 
-var wordArray = [];
-var guessedLetters = [];
-var matchedLetters = [];
-
-// created a function to catch user keys
-document.onkeyup = function (event) {
-    var userGuess = event.key;
-    console.log(userGuess);
-
-    for (i = 0; i < word.length; i++) {
-        wordArray[i] = ("_");
-        console.log(wordArray)
-    };
-
-    startGame = true;
-
+function setup() {
+    
+    // randomize words in "words" array
+    word = words[Math.floor(Math.random() * words.length)];
+    console.log(word);
+    
+    //empty array for spaces and words
+    underscoredWord = [];
+    
     for (var i = 0; i < word.length; i++) {
-        guessedLetters.push("_");
-        guessedLetters.toString();
-        currentWord.textContent = wordArray.join("");
-
-
+        underscoredWord[i] = "_"
     }
     
-    if (word.indexOf(userGuess) === -1) {
-        
-        console.log("wrong");
-        
-        document.getElementById("guessed-text").innerHTML += userGuess + " ";
+    // for letters that were guessed by user
+    guessedLetters = [];
     
-        // // subtract a remaining chance 
-        remaining--;
+    updateScreen();
+};
 
-    } else {
+// update what is shown
+function updateScreen() {
+    
+    document.getElementById("wins-text").innerText = "Wins: " + wins;
+    document.getElementById("remaining-text").innerText = "Chances: " + guessesRemaining;
+    document.getElementById("lose-text").innerText = "Loses: " + loses;
+    document.getElementById("current-text").innerText = underscoredWord.join("");
+    document.getElementById("guessed-text").innerText = guessedLetters ;
+    
+};
 
-        matchedLetters.push(userGuess);
-        console.log(matchedLetters);
-        console.log(guessedLetters);
+function checkGuesses(letter) {
+
+    // wrong choice
+    if (guessedLetters.indexOf(letter) === -1) {
         
-        for (var i = 0; i < word.length; i++) {
-
-            if(wordArray[i] === userGuess){
-                guessedLetters.push(userGuess);
-            } else {
-                guessedLetters.push("_");
-            }
-
+        guessedLetters.push(letter);
+        
+        if (word.indexOf(letter) === -1) {
             
+            guessesRemaining--;
+            
+        } else { // correct choice
+            for (var i = 0; i < word.length; i++) {
+                if (letter === word[i]) {
+                    underscoredWord[i] = letter;
+                }
+            }
         }
-        guessedLetters.toString();
-        
-        currentWord.textContent = wordArray.join("");
-
     }
+};
 
-    if (remaining <= 0) {
-        startGame=false;
+// if word is correct you get ++ wins
+function ifWinner() {
+    if (underscoredWord.indexOf("_") === -1) {
+        wins++;
+        startGame = true;
+    } 
+};
+
+// if remaining chance is less than 0 then lose
+function ifLose() {
+    if (guessesRemaining <= 0) {
         loses++;
-        currentWord.textContent = word;
-        document.getElementById("images").src = "https://gph.is/2CJO9yA";
+        startGame = true
     }
+};
 
+document.onkeyup = function (event) {
+    // game ends
+        if (startGame) {
+            setup();
+            startGame = false;
+        } else {
+           // resets variables with new word
+                checkGuesses(event.key.toLowerCase());
+                updateScreen();
+                ifWinner();
+                ifLose();
+            
+            
+        };
 
-
-    // making directions dissapear when game begins
-    directionText.textContent = "";
-
-    // displaying wins, blankspaces, chances, and guessed getters.
-    winsText.textContent = "Wins: " + wins;
-    loseText.textContent = "Losses: " + loses;
-    remainingText.textContent = "Remaining Chances: " + remaining;
-
-
-}
+    };
+    setup();
+    updateScreen();
